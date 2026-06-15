@@ -1,0 +1,8 @@
+# Netlify fallback: every unknown URL → index.html
+# This is required because the app is a single-page React app
+# with client-side routing. Without this, refreshing on
+# /shop or /account would 404.
+#
+# (The same rule is also set in netlify.toml, but Netlify's
+# public/_redirects file is read first if both exist.)
+/*    /index.html   200

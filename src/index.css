@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html, body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+html.dark body {
+  background-color: #020617;
+  color: #e2e8f0;
+}
+
+/* ===== Automatic dark mode for common utility patterns ===== */
+/* This file applies dark variants to any element that doesn't have them explicitly.
+   Only applies to elements that don't already have a dark: class. */
+
+html.dark .bg-white:not([class*="dark:"]) {
+  background-color: #0f172a;
+}
+html.dark .bg-slate-50:not([class*="dark:"]) {
+  background-color: #020617;
+}
+html.dark .bg-slate-100:not([class*="dark:"]) {
+  background-color: #1e293b;
+}
+html.dark .text-slate-900:not([class*="dark:"]) {
+  color: #f1f5f9;
+}
+html.dark .text-slate-800:not([class*="dark:"]) {
+  color: #e2e8f0;
+}
+html.dark .text-slate-700:not([class*="dark:"]) {
+  color: #cbd5e1;
+}
+html.dark .text-slate-600:not([class*="dark:"]) {
+  color: #94a3b8;
+}
+html.dark .text-slate-500:not([class*="dark:"]) {
+  color: #94a3b8;
+}
+html.dark .text-slate-400:not([class*="dark:"]) {
+  color: #64748b;
+}
+html.dark .border-slate-200:not([class*="dark:"]) {
+  border-color: #1e293b;
+}
+html.dark .border-slate-300:not([class*="dark:"]) {
+  border-color: #334155;
+}
+html.dark .border-slate-100:not([class*="dark:"]) {
+  border-color: #1e293b;
+}
+html.dark .divide-slate-100:not([class*="dark:"]) {
+  border-color: #1e293b;
+}
+html.dark .placeholder\:text-slate-400::placeholder {
+  color: #64748b;
+}
+
+/* Inputs in dark mode need explicit background/text colors */
+html.dark input:not([class*="dark:"]),
+html.dark select:not([class*="dark:"]),
+html.dark textarea:not([class*="dark:"]) {
+  background-color: #0f172a;
+  color: #f1f5f9;
+  border-color: #334155;
+}
+
+/* Hover states for buttons in dark mode */
+html.dark .hover\:bg-slate-50:hover {
+  background-color: #1e293b;
+}
+html.dark .hover\:bg-slate-100:hover {
+  background-color: #1e293b;
+}
+
+/* The "text-slate-900" inside the dark mode body is overridden by body color */
+html.dark {
+  color-scheme: dark;
+}
+
+/* Prevent horizontal scroll on mobile */
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* Improve mobile tap targets */
+button, a, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Smoother scrolling on iOS */
+* {
+  -webkit-overflow-scrolling: touch;
+}
